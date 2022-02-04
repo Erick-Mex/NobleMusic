@@ -33,8 +33,6 @@ module.exports = {
             if (!args.length) return message.channel.send('You need to send a song or url video');
             let song = {};
 
-
-            //ytdl.validateURL(args[0])
             if (ytdl.validateURL(args[0])) {
                 const song_info = await play.video_basic_info(args[0]);
                 song = {
@@ -88,8 +86,6 @@ module.exports = {
                 }
             } else {
                 server_queue.songs.push(song);
-                //console.log('The queue');
-                //console.log(queue.get(message.guild.id).songs);
                 return message.channel.send(`👍 **${song.title}** added to queue!`);
             }
         }
@@ -125,7 +121,10 @@ const video_player = async (guild, song) => {
     //Create and play the song
     const stream = await play.stream(song.url);
     const resource = createAudioResource(stream.stream, {
-        inputType: stream.type
+        inputType: stream.type,
+        metadata: {
+            title: song.title
+        }
     });
     const player = createAudioPlayer();
     player.play(resource);

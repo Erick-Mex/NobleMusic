@@ -8,7 +8,7 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
         if(!voiceChannel) return message.channel.send('You need to be in a voice channel');
 
-        if(!playerVoiceChannel) return message.channel.send('There is not a song playing now')
+        if(!playerVoiceChannel) return message.channel.send('There is no song playing right now')
         if(voiceChannel != playerVoiceChannel.joinConfig.channelId) return message.channel.send('You need to be on the same voice channel');
 
         const player = playerVoiceChannel.state.subscription.player;
