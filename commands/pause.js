@@ -3,7 +3,7 @@ const {getVoiceConnection, AudioPlayerStatus} = require('@discordjs/voice')
 module.exports = {
     name: 'pause',
     description: 'Pause the song',
-    async execute(client, message, args, Discord, cmd) {
+    async execute(message, args, cmd, client, Discord) {
         const playerVoiceChannel = getVoiceConnection(message.guild.id);
         const voiceChannel = message.member.voice.channel;
         if(!voiceChannel) return message.channel.send('You need to be in a voice channel');
