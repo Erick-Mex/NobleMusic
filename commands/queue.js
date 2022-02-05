@@ -10,7 +10,7 @@ module.exports = {
         const voiceChannel = message.member.voice.channel;
 
         if (!voiceChannel) return message.channel.send('You need to be in a voice channel');
-        if (!playerVoiceChannel) return message.channel.send('There is not a song playing now');
+        if (!playerVoiceChannel) return message.channel.send('The bot is not connected to a voice channel');
         if (voiceChannel != playerVoiceChannel.joinConfig.channelId) return message.channel.send('You need to be in the same voice channel');
 
         const songs = queue.get(message.guild.id).songs;
