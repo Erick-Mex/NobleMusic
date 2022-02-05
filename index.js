@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const config = require('./config');
 const fs = require('fs');
 
 require('dotenv').config();
@@ -23,5 +22,4 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client, Discord);
 });
 
-//client.login(config.token)
 client.login(process.env.TOKEN);
