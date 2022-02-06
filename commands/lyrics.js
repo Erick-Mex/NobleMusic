@@ -57,6 +57,5 @@ module.exports = {
     } catch (err) {
       message.channel.send("Wait for the bot to connect");
     }
-    const pattern = " x ";
   }
 };
